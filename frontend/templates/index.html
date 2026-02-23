@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Language Assistive System</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #1e1e1e;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .main-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .placeholder-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #555;
+            font-size: 30px;
+            opacity: 0.3;
+        }
+
+        .small-video {
+            position: absolute;
+            bottom: 120px;
+            right: 20px;
+            width: 320px;
+            border-radius: 15px;
+            border: 3px solid #00c896;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        .subtitle {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 15px 30px;
+            font-size: 22px;
+            border-radius: 12px;
+        }
+
+        .control-bar {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .control-button {
+            background-color: #00c896;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .control-button:hover {
+            background-color: #00a67d;
+        }
+
+        .end-call {
+            background-color: #e74c3c;
+        }
+
+        .end-call:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="placeholder-text">
+        Waiting for participants...
+    </div>
+
+    <img src="{{ url_for('video_feed') }}" class="small-video">
+
+    <div class="subtitle">
+        Live Sign Translation
+    </div>
+
+    <div class="control-bar">
+        <button class="control-button">Mute</button>
+        <button class="control-button">Camera</button>
+        <button class="control-button">Share</button>
+        <button class="control-button">Chat</button>
+        <button class="control-button">Settings</button>
+        <button class="control-button end-call">End Call</button>
+    </div>
+
+</div>
+
+</body>
+</html>
